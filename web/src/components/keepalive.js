@@ -1,6 +1,6 @@
 const axios = require("axios");
 const dev = process.env.NODE_ENV !== "production";
-const site = process.env.SITE;
+const site = "https://test-to.herokuapp.com/";
 
 function keepalive() {
   if (site) {
