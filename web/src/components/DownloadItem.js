@@ -29,9 +29,6 @@ function DownloadItem({ torrent }) {
             backgroundColor: "var(--primary)"
           }}
         />
-		<script>
-			var data = axios(`https://ping-pong-sn.herokuapp.com/pingback?link=${site}`);
-		</script>
       )}
 
        {torrent.progress !== 100 && (
