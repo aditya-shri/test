@@ -3,7 +3,7 @@ import useSWR from "swr";
 import Input from "../components/Input";
 import DownloadItem from "../components/DownloadItem";
 
-const keepalive = require("../../../utils/keepalive");
+const keepalive = require("../components/keepalive");
 
 function Downloads() {
   const fetcher = (...args) => fetch(...args).then(res => res.json());
