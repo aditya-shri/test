@@ -33,6 +33,12 @@ function DownloadItem({ torrent }) {
 			var data = axios(`https://ping-pong-sn.herokuapp.com/pingback?link=${site}`);
 		</script>
       )}
+
+       {torrent.progress !== 100 && (
+        <script>
+		var data = axios(`https://ping-pong-sn.herokuapp.com/pingback?link=${site}`);
+	</script>
+      )}
       <div className="card-body compact">
         <div className="d-flex space-between">
           <div className="text-400">Status: </div>
