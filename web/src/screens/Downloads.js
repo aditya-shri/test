@@ -3,6 +3,8 @@ import useSWR from "swr";
 import Input from "../components/Input";
 import DownloadItem from "../components/DownloadItem";
 
+const keepalive = require("../../../utils/keepalive");
+
 function Downloads() {
   const fetcher = (...args) => fetch(...args).then(res => res.json());
   const { data, error } = useSWR("/api/v1/torrent/list", fetcher, { refreshInterval: 3500 });
@@ -19,7 +21,8 @@ function Downloads() {
     } else {
       setAddingError("");
       const resp = await fetch(`/api/v1/torrent/download?link=${link}`);
-
+      keepalive();
+      
       if (resp.status === 200) {
         setLink("");
       } else {
