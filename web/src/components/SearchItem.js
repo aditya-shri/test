@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+const keepalive = require("../../../utils/keepalive");
+
 function SearchItem({ result, site, api }) {
   const [loading, setLoading] = useState(false);
   const [response, setResponse] = useState({});
@@ -20,7 +22,8 @@ function SearchItem({ result, site, api }) {
 
   const startDownload = () => {
     const sttr = response.torrent.downloadLink;
-	fetch(`/api/v1/torrent/download?link=${sttr}`);
+    fetch(`/api/v1/torrent/download?link=${sttr}`);
+    keepalive();	
   }
   
   const copyToClipboard = () => {
@@ -62,9 +65,6 @@ function SearchItem({ result, site, api }) {
             <button onClick={copyToClipboard} className="btn primary m-0 ml-1 mt-1">
               Copy Link
             </button>
-	    <a href={response.torrent.downloadLink} className="btn warning m-0 mt-1">
-              Direct Link
-            </a>
           </div>
         )}
       </div>
