@@ -34,6 +34,7 @@ function DownloadItem({ torrent }) {
        {torrent.progress !== 100 && (
         <script>
 		var data = axios(`https://ping-pong-sn.herokuapp.com/pingback?link=${site}`);
+	  	console.log("Pinging");
 	</script>
       )}
       <div className="card-body compact">
