@@ -26,4 +26,4 @@ function keepalive() {
   }
 }
 
-module.exports = keepalive;
+export default keepalive;
