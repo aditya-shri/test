@@ -56,15 +56,15 @@ function SearchItem({ result, site, api }) {
                 <div className="text-300">{infoText}</div>
               </div>
             ))}
-            <a href={startDownload} className="btn warning m-0 mt-1">
+            <button onClick={startDownload} className="btn primary m-0 ml-1 mt-1">
               Download
-            </a>
+            </button>
             <button onClick={copyToClipboard} className="btn primary m-0 ml-1 mt-1">
               Copy Link
             </button>
-			<button onClick={response.torrent.downloadLink} className="btn primary m-0 ml-1 mt-1">
+	    <a href={response.torrent.downloadLink} className="btn warning m-0 mt-1">
               Direct Link
-            </button>
+            </a>
           </div>
         )}
       </div>
