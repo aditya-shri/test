@@ -1,5 +1,4 @@
 // Redesigned by t.me/TheFirstSpeedster from https://github.com/ParveenBhadooOfficial/Bhadoo-Drive-Index which was written by someone else, credits are given on Source Page.
-var fid={};
 document.write(
 `<style> .player{margin: 20px 1px 10px 1px;display: static;text-align: center;position: sticky;width: 100%;height: 85vh;color: white;}
 .player_iframe {margin: 1px 1px 1px 1px;width: 100%;height: 100%;display: static;text-align: center;border: 10px;color: #FFFFFF;}</style>`);
@@ -363,10 +362,9 @@ function append_files_to_list(path, files) {
 				c += " view";
 			}
 			if("|mp4|webm|avi|mpg|mpeg|mkv|mov|".indexOf(`|${ext}|`) >=0){
-				var fn = String(item.name);
-				fid[fn]=item['id'];
+				window.fid[item.name]=item['id'];
 			}
-			html += `<a href="${p}" class="list-group-item ${UI.dark_mode ? 'list-group-item-action' : 'btn-outline-secondary'}"><svg width="1.5em" height="1.5em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path fill="#50e6ff" d="M39,16v25c0,1.105-0.895,2-2,2H11c-1.105,0-2-0.895-2-2V7c0-1.105,0.895-2,2-2h17L39,16z"></path><linearGradient id="F8F33TU9HxDNWNbQYRyY3a" x1="28.529" x2="33.6" y1="15.472" y2="10.4" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3079d6"></stop><stop offset="1" stop-color="#297cd2"></stop></linearGradient><path fill="url(#F8F33TU9HxDNWNbQYRyY3a)" d="M28,5v9c0,1.105,0.895,2,2,2h9L28,5z"></path></svg> ${item.name}<span class="badge"> ${item['size']}</span><span class="badge">${fid[item['name']]}</span></a>`;
+			html += `<a href="${p}" class="list-group-item ${UI.dark_mode ? 'list-group-item-action' : 'btn-outline-secondary'}"><svg width="1.5em" height="1.5em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path fill="#50e6ff" d="M39,16v25c0,1.105-0.895,2-2,2H11c-1.105,0-2-0.895-2-2V7c0-1.105,0.895-2,2-2h17L39,16z"></path><linearGradient id="F8F33TU9HxDNWNbQYRyY3a" x1="28.529" x2="33.6" y1="15.472" y2="10.4" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3079d6"></stop><stop offset="1" stop-color="#297cd2"></stop></linearGradient><path fill="url(#F8F33TU9HxDNWNbQYRyY3a)" d="M28,5v9c0,1.105,0.895,2,2,2h9L28,5z"></path></svg> ${item.name}<span class="badge"> ${item['size']}</span><span class="badge">${window.fid[item['name']]}</span></a>`;
 		}
 	}
 
@@ -544,7 +542,7 @@ function append_search_result_to_list(files) {
 				c += " view";
 			}
 			if("|mp4|webm|avi|mpg|mpeg|mkv|mov|".indexOf(`|${ext}|`) >=0){
-				fid[item.name]=item['id'];
+				window.fid[item.name]=item['id'];
 			}
 			html += `<a onclick="onSearchResultItemClick(this)" id="${item['id']}" gd-type="${item.mimeType}" class="list-group-item ${UI.dark_mode ? 'list-group-item-action' : 'btn-outline-secondary'}"><svg width="1.5em" height="1.5em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path fill="#50e6ff" d="M39,16v25c0,1.105-0.895,2-2,2H11c-1.105,0-2-0.895-2-2V7c0-1.105,0.895-2,2-2h17L39,16z"></path><linearGradient id="F8F33TU9HxDNWNbQYRyY3a" x1="28.529" x2="33.6" y1="15.472" y2="10.4" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3079d6"></stop><stop offset="1" stop-color="#297cd2"></stop></linearGradient><path fill="url(#F8F33TU9HxDNWNbQYRyY3a)" d="M28,5v9c0,1.105,0.895,2,2,2h9L28,5z"></path></svg> ${item.name}<span class="badge"> ${item['size']}</span><span class="badge">${item['modifiedTime']}</span></a>`;
 		}
@@ -640,7 +638,7 @@ function file(path) {
 	}
 
 	if ("|mpg|mpeg|mkv|rm|rmvb|mov|wmv|asf|ts|flv|".indexOf(`|${ext}|`) >= 0) {
-		return file_video(path,String(name));
+		return file_video(path,name);
 	}
 
 	if ("|mp3|flac|wav|ogg|m4a|".indexOf(`|${ext}|`) >= 0) {
@@ -701,7 +699,7 @@ function copyToClipboard(str) {
 // Document display video |mp4|webm|avi|
 function file_video(path,fname) {
 	const url = window.location.origin + path;
-	var adi = fid['fname'];
+	var adi = window.fid[fname];
 	const content = `
   <div class="container"><br>
   <div class="card">
