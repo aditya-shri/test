@@ -1,5 +1,5 @@
 // Redesigned by t.me/TheFirstSpeedster from https://github.com/ParveenBhadooOfficial/Bhadoo-Drive-Index which was written by someone else, credits are given on Source Page.
-var fileid={};
+var fid={};
 document.write(
 `<style> .player{margin: 20px 1px 10px 1px;display: static;text-align: center;position: sticky;width: 100%;height: 85vh;color: white;}
 .player_iframe {margin: 1px 1px 1px 1px;width: 100%;height: 100%;display: static;text-align: center;border: 10px;color: #FFFFFF;}</style>`);
