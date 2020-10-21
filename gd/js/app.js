@@ -700,8 +700,7 @@ function copyToClipboard(str) {
 // Document display video |mp4|webm|avi|
 function file_video(path,fname) {
 	const url = window.location.origin + path;
-	var adi = fid[fname];
-	window.console.log(fname);
+	var adi = fid['fname'];
 	const content = `
   <div class="container"><br>
   <div class="card">
@@ -709,7 +708,7 @@ function file_video(path,fname) {
   <div class="alert alert-danger" id="folderne" role="alert"></div><script>document.getElementById("folderne").innerHTML=decodeURI(this.window.location.href.substring(window.location.href.lastIndexOf('/',window.location.href.lastIndexOf('/')+1))).replace('/','').replace('?a=view','');</script>
   <br>		
 	<div class="player">
-     		<iframe class="player_iframe" src="https://drive.google.com/file/d/${fname}/preview" webkitallowfullscreen mozallowfullscreen allowfullscreen></webview>
+     		<iframe class="player_iframe" src="https://drive.google.com/file/d/${adi}/preview" webkitallowfullscreen mozallowfullscreen allowfullscreen></webview>
 	</div>
 	</br>
   </div>
