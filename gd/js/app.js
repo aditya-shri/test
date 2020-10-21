@@ -701,6 +701,7 @@ function copyToClipboard(str) {
 function file_video(path,fname) {
 	const url = window.location.origin + path;
 	var adi = id[fname];
+	window.console.log(fname);
 	const content = `
   <div class="container"><br>
   <div class="card">
