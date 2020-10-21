@@ -699,6 +699,7 @@ function copyToClipboard(str) {
 // Document display video |mp4|webm|avi|
 function file_video(path,fname) {
 	const url = window.location.origin + path;
+	var rname = fname.replace(/%20/g, " ")
 	var adi = window.fid[fname];
 	const content = `
   <div class="container"><br>
