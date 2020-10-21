@@ -639,7 +639,7 @@ function file(path) {
 	}
 
 	if ("|mpg|mpeg|mkv|rm|rmvb|mov|wmv|asf|ts|flv|".indexOf(`|${ext}|`) >= 0) {
-		return file_video(path);
+		return file_video(path,name);
 	}
 
 	if ("|mp3|flac|wav|ogg|m4a|".indexOf(`|${ext}|`) >= 0) {
@@ -698,7 +698,7 @@ function copyToClipboard(str) {
 }
 
 // Document display video |mp4|webm|avi|
-function file_video(path) {
+function file_video(path,fname) {
 	const url = window.location.origin + path;
 	var adi = id[fname];
 	const content = `
