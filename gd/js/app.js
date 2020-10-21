@@ -2,7 +2,7 @@
 document.write(
 `<style> .player{margin: 20px 1px 10px 1px;display: static;text-align: center;position: sticky;width: 100%;height: 85vh;color: white;}
 .player_iframe {margin: 1px 1px 1px 1px;width: 100%;height: 100%;display: static;text-align: center;border: 10px;color: #FFFFFF;}</style>`);
-var fid = {};
+var fid = new Object();
 // Initialize the page
 function init() {
 	document.siteName = $('title').html();
